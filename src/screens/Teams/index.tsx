@@ -24,6 +24,7 @@ export function Teams(){
 
             <Content>
                 <TeamCard title="Equipe 1"/> 
+                
             </Content>
 
         </Container>

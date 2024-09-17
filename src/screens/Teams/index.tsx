@@ -6,6 +6,7 @@ import { Highlight } from "@components/Highlitght";
 import { TeamCard } from "@components/TeamCard";
 import { useState } from "react";
 import { ListEmpty } from "@components/ListEmpty";
+import { Button } from "@components/Button";
 
 
 
@@ -40,6 +41,8 @@ export function Teams(){
                 )}
                 contentContainerStyle={teams.length === 0 && {flex: 1}}
                 />
+
+                <Button title="Criar uma nova equipe"/>
  
             </Content>
 

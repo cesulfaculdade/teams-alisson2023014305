@@ -21,5 +21,5 @@ export const HeaderContainer = styled.View`
 
 export const Content = styled.View`
     padding: 24px;
-
+    flex: 1;
 `;

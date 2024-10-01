@@ -1,7 +1,8 @@
+import { TextInput } from "react-native";
 import styled from "styled-components/native";
 
 
-export const Container = styled.View`
+export const Container = styled(TextInput)`
     flex: 1;
     min-height: 54px;
     max-height: 54px;
@@ -13,12 +14,6 @@ export const Container = styled.View`
     border-width: 1px;
     border-color: ${({ theme }) => theme.COLORS.GRAY_300};;
     padding: 16px;
-
+    
 `;
 
-export const InputTela = styled.TextInput`
-
-   
-
-
-`;

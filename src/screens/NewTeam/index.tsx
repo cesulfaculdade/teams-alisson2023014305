@@ -2,7 +2,6 @@ import { Header } from "@components/Header";
 import { Container, Content, HeaderContainer} from "./styles";
 import { Highlight } from "@components/Highlitght";
 import { Button } from "@components/Button";
-import { TextInput } from "react-native";
 import { Input } from "@components/Input";
 
 
@@ -23,8 +22,8 @@ export function NewTeam(){
         </HeaderContainer>
 
         <Content>
-            <Input/>
-    
+
+            <Input placeholder="Nome da Equipe"/>
 
             <Button title="Criar uma nova equipe"/>
 

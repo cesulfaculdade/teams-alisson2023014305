@@ -3,6 +3,7 @@ import { Container, Content, HeaderContainer, InputContainer } from "./styles";
 import { Highlight } from "@components/Highlitght";
 import { Button } from "@components/Button";
 import { Input } from "@components/Input";
+import { ButtonIcon } from "@components/ButtonIcon";
 
 
 export function AddMembers(){
@@ -25,7 +26,7 @@ export function AddMembers(){
         <InputContainer>
 
             <Input placeholder="Adicione um membro"/> 
-
+            <ButtonIcon icon="add-circle-outline"/>
         
 
         </InputContainer>

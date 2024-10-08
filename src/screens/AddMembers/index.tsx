@@ -25,8 +25,14 @@ export function AddMembers(){
 
         <InputContainer>
 
-            <Input placeholder="Adicione um membro"/> 
-            <ButtonIcon icon="add-circle-outline"/>
+            <Input 
+                style={{borderTopRightRadius: 0, borderBottomRightRadius: 0, borderRightWidth:0 }}
+                placeholder="Adicione um membro"
+            
+            /> 
+            <ButtonIcon 
+            style={{borderTopLeftRadius:0, borderBottomLeftRadius:0  }}
+            icon="add-circle-outline"/>
         
 
         </InputContainer>

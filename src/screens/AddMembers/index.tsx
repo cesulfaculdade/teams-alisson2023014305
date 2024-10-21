@@ -1,9 +1,10 @@
 import { Header } from "@components/Header";
-import { Container, Content, HeaderContainer, InputContainer } from "./styles";
+import { Container, Content, HeaderContainer, InputContainer, Tabs } from "./styles";
 import { Highlight } from "@components/Highlitght";
 import { Button } from "@components/Button";
 import { Input } from "@components/Input";
 import { ButtonIcon } from "@components/ButtonIcon";
+import { Tab } from "@components/Tab";
 
 
 export function AddMembers(){
@@ -36,6 +37,12 @@ export function AddMembers(){
         
 
         </InputContainer>
+
+        <Tabs>
+            <Tab title="Titular" isActive={true} />
+            <Tab title="Reserva"/>
+        </Tabs>
+           
 
             <Button title="Deletar equipe" type="SECONDARY"/>
 

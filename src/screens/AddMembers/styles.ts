@@ -31,4 +31,7 @@ export const InputContainer = styled.View`
     flex-direction: row;
 
 `;
+export const Tabs = styled.View`
+    flex-direction: row;
+`;
 

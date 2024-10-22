@@ -23,7 +23,7 @@ export const HeaderContainer = styled.View`
 
 export const Content = styled.View`
     padding: 24px;
-    justify-content: space-between;
+
     flex: 1;
 `;
 
@@ -32,6 +32,8 @@ export const InputContainer = styled.View`
 
 `;
 export const Tabs = styled.View`
-    
+    margin: 32px 0;
+    align-items: center;
+    flex-direction: row;
 `;
 

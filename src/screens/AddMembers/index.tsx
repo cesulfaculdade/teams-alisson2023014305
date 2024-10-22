@@ -5,9 +5,14 @@ import { Button } from "@components/Button";
 import { Input } from "@components/Input";
 import { ButtonIcon } from "@components/ButtonIcon";
 import { Tab } from "@components/Tab";
+import { FlatList } from "react-native";
+import { useState } from "react";
 
 
 export function AddMembers(){
+    const [tab, setTab] = useState("Titular");
+
+
     return(
         <Container>
 
@@ -39,8 +44,21 @@ export function AddMembers(){
         </InputContainer>
 
         <Tabs>
-            <Tab title="Titular" isActive={true} />
-            <Tab title="Reserva"/>
+
+            <FlatList
+                data={['Titular','Reserva']}
+                keyExtractor={(item) => item}
+                renderItem={({item})=> (
+                    <Tab
+                        title={item}
+                        isActive={item === tab}
+                        onPress={()=> setTab(item)}
+                    />
+                    
+                )}  
+                horizontal
+            />
+
         </Tabs>
            
 

@@ -13,8 +13,8 @@ import { ListEmpty } from "@components/ListEmpty";
 
 
 export function AddMembers(){
-    const [tab, setTab] = useState("Titular");
-    const [members, setMembers] = useState(["biankato","gabriel", "gabi"]);
+    const [tab, setTab] = useState<string>("Titular");
+    const [members, setMembers] = useState<string[]>(["biankato","gabriel", "gabi"]);
 
     return(
         <Container>

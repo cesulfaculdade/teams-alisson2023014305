@@ -25,3 +25,5 @@ export function ButtonIcon({icon ,type = "PRIMARY" ,size= 'MD', borderRadius = '
     );
 
 }
+
+

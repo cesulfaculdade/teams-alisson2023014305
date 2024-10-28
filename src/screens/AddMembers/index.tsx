@@ -63,7 +63,13 @@ export function AddMembers(){
             <Tag text={0}/>
         </Tabs>
            
-        <MemberCard name="Gabi biankati"/>
+        <MemberCard 
+        name="Gabi biankati"
+        onRemove={() => console.log('remove')}
+        />
+
+
+
             <Button title="Deletar equipe" 
             type="SECONDARY"
             />

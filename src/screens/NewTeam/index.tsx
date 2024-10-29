@@ -3,10 +3,22 @@ import { Container, Content, HeaderContainer} from "./styles";
 import { Highlight } from "@components/Highlitght";
 import { Button } from "@components/Button";
 import { Input } from "@components/Input";
+import { useNavigation } from "@react-navigation/native";
+import { useState } from "react";
 
 
 
 export function NewTeam(){
+
+    const[team, setTeam] = useState<string>("");
+
+    const navigation = useNavigation();
+
+    function handleAddMembers(){
+        navigation.navigate("addMembers", { team });
+    }
+
+
     return(
         <Container>
 
@@ -23,9 +35,12 @@ export function NewTeam(){
 
         <Content>
 
-            <Input placeholder="Nome da Equipe"/>
+            <Input placeholder="Nome da Equipe"
+                onChangeText={setTeam}
+            
+            />
 
-            <Button title="Criar uma nova equipe"/>
+            <Button title="Criar uma nova equipe" onPress={handleAddMembers}/>
 
         </Content>
 

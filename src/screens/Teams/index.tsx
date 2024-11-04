@@ -8,6 +8,7 @@ import { useState } from "react";
 import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
 import { useNavigation } from "@react-navigation/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 
 
@@ -16,14 +17,16 @@ export function Teams(){
 
     const navigation = useNavigation();
 
+    const insets = useSafeAreaInsets();
+
     function handleNewTeam(){
         navigation.navigate("newTeam");
     }
 
     return(
-        <Container>
+        <Container style={{paddingBottom: insets.bottom}}>
 
-            <HeaderContainer>
+            <HeaderContainer style={{paddingTop: insets.top}}>
                 <Header/>
 
                 <Highlight

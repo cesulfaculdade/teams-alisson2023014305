@@ -1,4 +1,4 @@
-import { TouchableOpacity } from "react-native";
+import { Platform, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
 
@@ -16,13 +16,12 @@ background-color: ${({theme})=> theme.COLORS.GRAY_100} ;
 export const HeaderContainer = styled.View`
     background-color:${({theme})=> theme.COLORS.PURPLE_500} ;
     width: 100%;
-    padding-top: 54px;
-    padding-bottom: 24px;
+    padding: 24px 0;
 
 `;
 
 export const Content = styled.View`
-    padding: 24px;
+    padding: ${Platform.OS === "ios" ? '24px 24px 0 24px' : '24px'};
 
     flex: 1;
 `;

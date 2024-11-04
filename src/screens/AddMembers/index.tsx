@@ -11,6 +11,7 @@ import { Tag } from "@components/Tag";
 import { MemberCard } from "@components/MemberCard";
 import { ListEmpty } from "@components/ListEmpty";
 import { useRoute } from "@react-navigation/native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 type RouteParams = {
     team : string;
@@ -20,13 +21,16 @@ export function AddMembers(){
     const [tab, setTab] = useState<string>("Titular");
     const [members, setMembers] = useState<string[]>(["biankato","gabriel", "gabi"]);
 
+    const insets = useSafeAreaInsets();
+
+
     const route = useRoute();
     const { team } = route.params as RouteParams;
 
     return(
-        <Container>
+        <Container style={{paddingBottom: insets.bottom}}>
 
-        <HeaderContainer>
+        <HeaderContainer style={{paddingTop: insets.top}}>
             <Header showBackButton/>
 
             <Highlight

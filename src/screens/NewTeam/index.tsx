@@ -23,6 +23,12 @@ export function NewTeam(){
 
     async function handleAddMembers(){
         try {
+
+            if(team.trim().length === 0){
+                return Alert.alert('Nova equipe',"Informe o nome da equipe.");
+            }
+
+
             await createTeam(team);
             navigation.navigate("addMembers", { team });
         } catch (error) {

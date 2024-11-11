@@ -4,10 +4,10 @@ import { Container, Content, HeaderContainer} from "./styles";
 import { Header } from "@components/Header";
 import { Highlight } from "@components/Highlitght";
 import { TeamCard } from "@components/TeamCard";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { ListEmpty } from "@components/ListEmpty";
 import { Button } from "@components/Button";
-import { useNavigation } from "@react-navigation/native";
+import { useFocusEffect, useNavigation } from "@react-navigation/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { fetchAllTeams } from "src/storage/team/fetchAllTeams";
 
@@ -35,9 +35,14 @@ export function Teams(){
         }
     }
 
-    useEffect(()=>{
+    function handleNavigateToMembers(team: string){
+        navigation.navigate('addMembers',{ team });   
+    }
+
+
+    useFocusEffect(useCallback(()=>{
         handleFetchAllTeams();
-    },[])
+    },[]))
 
 
     return(
@@ -60,7 +65,7 @@ export function Teams(){
                 data={teams}
                 keyExtractor={(item) => item}
                 renderItem={({item}) => (
-                <TeamCard title={item}/> 
+                <TeamCard title={item} onPress={()=> handleNavigateToMembers(item)}/> 
                 )}
                 ListEmptyComponent={()=> (<ListEmpty message="Começe criando uma equipe!"/>
 

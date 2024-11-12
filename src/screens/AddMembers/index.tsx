@@ -6,7 +6,7 @@ import { Input } from "@components/Input";
 import { ButtonIcon } from "@components/ButtonIcon";
 import { Tab } from "@components/Tab";
 import { Alert, FlatList } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Tag } from "@components/Tag";
 import { MemberCard } from "@components/MemberCard";
 import { ListEmpty } from "@components/ListEmpty";
@@ -14,6 +14,8 @@ import { useRoute } from "@react-navigation/native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
 import { createMemberOnTeam } from "@storage/member/createMemberOnTeam";
 import { AppError } from "@utils/AppError";
+import { getMembersByTypeAndTeams } from "@storage/member/getMembersByTypeAndTeam";
+import { MemberStorageDTO } from "@storage/member/memberStorageDTO";
 
 type RouteParams = {
     team : string;
@@ -22,7 +24,7 @@ type RouteParams = {
 export function AddMembers(){
     const[newMemberName, setNewMemberName] = useState<string>('');
     const [tab, setTab] = useState<string>("Titular");
-    const [members, setMembers] = useState<string[]>([]);
+    const [members, setMembers] = useState<MemberStorageDTO[]>([]);
 
     const insets = useSafeAreaInsets();
 
@@ -49,6 +51,20 @@ export function AddMembers(){
 
          
     }
+
+    async function fetchMembersByTypeAndTeam(){
+        try {
+            const membersByTeam = await getMembersByTypeAndTeams(team, tab);
+            setMembers(membersByTeam);
+        } catch (error) {
+            
+        }
+    }
+
+    useEffect(()=> {
+        fetchMembersByTypeAndTeam()
+    },[tab]);
+
 
 
     const route = useRoute();
@@ -109,10 +125,10 @@ export function AddMembers(){
 
         <FlatList
             data={members}
-            keyExtractor={ item => item}
+            keyExtractor={ item => item.name}
             renderItem={({item})=> (
                 <MemberCard
-                name={item}
+                name={item.name}
                 onRemove={()=> console.log("removeu")}
                 
                 />

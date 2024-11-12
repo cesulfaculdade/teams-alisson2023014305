@@ -1,7 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { fetchAllTeams } from "./fetchAllTeams";
-import { TEAM_COLLECTION } from "./starageConfig";
+
 import { AppError } from "@utils/AppError";
+import { TEAM_COLLECTION } from "@storage/storageConfig";
 
 export async function createTeam(newTeam: string){
     try {
